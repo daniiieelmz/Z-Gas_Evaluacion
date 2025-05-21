@@ -1,19 +1,30 @@
 import React, { useState } from "react";
-import "./Products.css";
+import Navbar from "../../components/navbarPage/navbar"; // Ajusta la ruta si es necesario
+import "./products.css";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([
+    { name: "Tambo", description: "Mediano", price: "9", stock: "50" },
+    { name: "Tambo", description: "Grande", price: "12", stock: "30" },
+    { name: "Tambo", description: "Pequeño", price: "6", stock: "15" }
+  ]);
+  const [editingIndex, setEditingIndex] = useState(null);
   const [formData, setFormData] = useState({ name: "", description: "", price: "", stock: "" });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const addProduct = () => {
-    if (Object.values(formData).every((field) => field !== "")) {
-      setProducts([...products, { ...formData }]);
-      setFormData({ name: "", description: "", price: "", stock: "" });
+    if (Object.values(formData).some((field) => field === "")) {
+      setErrorMessage("FILL IN ALL FIELDS");
+      return;
     }
+
+    setProducts([...products, { ...formData }]);
+    setFormData({ name: "", description: "", price: "", stock: "" });
+    setErrorMessage("");
   };
 
   const deleteProduct = (index) => {
@@ -21,38 +32,41 @@ const Products = () => {
   };
 
   const editProduct = (index) => {
-    const productToEdit = products[index];
-    setFormData(productToEdit);
-    deleteProduct(index);
+    setEditingIndex(index);
+    setFormData(products[index]);
+  };
+
+  const saveEdit = () => {
+    const updatedProducts = [...products];
+    updatedProducts[editingIndex] = formData;
+    setProducts(updatedProducts);
+    setEditingIndex(null);
+    setFormData({ name: "", description: "", price: "", stock: "" });
   };
 
   return (
-    <div className="container">
-      {/* Formulario para agregar productos */}
-      <div className="form">
-        <h2>ADD PRODUCTS</h2>
+    <div className="products-page">
+      <Navbar /> {/* Navbar situado arriba, ocupando toda la pantalla de ancho */}
+
+      <h2>ADD PRODUCTS</h2>
+
+      {/* Formulario */}
+      <div className="form-container">
         <div className="input-row">
-          <div className="input-group">
-            <label>NAME</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} />
-          </div>
-          <div className="input-group">
-            <label>DESCRIPTION</label>
-            <input type="text" name="description" value={formData.description} onChange={handleChange} />
-          </div>
-          <div className="input-group">
-            <label>PRICE</label>
-            <input type="number" name="price" value={formData.price} onChange={handleChange} />
-          </div>
-          <div className="input-group">
-            <label>STOCK</label>
-            <input type="number" name="stock" value={formData.stock} onChange={handleChange} />
-          </div>
+          {["name", "description", "price", "stock"].map((field) => (
+            <div className="input-group" key={field}>
+              <label>{field.toUpperCase()}</label>
+              <input type={field === "price" || field === "stock" ? "number" : "text"} name={field} value={formData[field]} onChange={handleChange} />
+            </div>
+          ))}
         </div>
-        <button className="add-btn" onClick={addProduct}>PRODUCTS +</button>
+        <button className="add-btn" onClick={editingIndex !== null ? saveEdit : addProduct}>PRODUCTS +</button>
+
+        {/* Alerta si faltan campos */}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
 
-      {/* Tabla de productos */}
+      {/* Tabla más abajo */}
       <table className="product-table">
         <thead>
           <tr>
@@ -71,8 +85,8 @@ const Products = () => {
               <td>${product.price}</td>
               <td>{product.stock}</td>
               <td>
-                <button className="edit-btn" onClick={() => editProduct(index)}>✏️</button>
-                <button className="delete-btn" onClick={() => deleteProduct(index)}>🗑️</button>
+                <button className="edit-btn" onClick={() => editProduct(index)}> <img src="/src/img/Edit.png" /> </button>
+                <button className="delete-btn" onClick={() => deleteProduct(index)}> < img src="/src/img/Delete.png" /> </button>
               </td>
             </tr>
           ))}

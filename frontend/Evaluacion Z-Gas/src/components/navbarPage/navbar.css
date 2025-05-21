@@ -1,0 +1,66 @@
+/* Contenedor del Navbar */
+.navbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* Imagen grande a la izquierda */
+.nav-logo {
+  width: 50px;
+  height: 50px;
+}
+
+/* Cada sección del Navbar */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Enlace del Navbar sin efecto de cambio de color al hover */
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+}
+
+/* Forzar el color en hover para que siempre se mantenga negro */
+.nav-link:hover {
+  color: black;
+}
+
+/* Ícono de la sección */
+.nav-icon {
+  width: 35px;
+  height: 35px;
+}
+
+/* Texto de la sección con indicador activo */
+.nav-text {
+  position: relative;
+}
+
+/* Línea debajo del texto solo en la sección activa */
+.nav-link.active .nav-text::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;       /* Posición debajo del texto */
+  left: 0;            /* La línea solo cubre el ancho del texto */
+  width: 100%;        /* Ocupa todo el ancho del texto */
+  height: 3px;        /* Línea más gruesa */
+  background-color: black;
+}

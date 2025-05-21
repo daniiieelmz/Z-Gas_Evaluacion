@@ -1,0 +1,124 @@
+/* Contenedor principal, igual que en Products */
+.customers-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  padding-top: 80px; /* Para evitar superposición con el Navbar fijo */
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/* Contenedor del formulario */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Distribución de los inputs en una sola fila */
+.input-row {
+  display: flex;
+  flex-wrap: nowrap; /* Evita el wrap, forzando que queden en la misma fila */
+  justify-content: center;
+  width: 100%;
+}
+
+/* Cada bloque de input, ajustado para ser un poco menor */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  width: 16%;            /* Disminuido para que los 5 inputs quepan en una fila */
+  min-width: 120px;       /* Disminuido de 150px */
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+/* Separador vertical entre inputs (excepto el último) con márgenes reducidos */
+.input-group:not(:last-child) {
+  border-right: 1px solid #ddd;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  padding: 8px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Botón para agregar o guardar, igual que en Products */
+.add-btn {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 12px 24px;
+  border-radius: 5px;
+  margin-top: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Mensaje de error */
+.error-message {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Estilos de la tabla */
+.customer-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.customer-table thead {
+  background-color: #aaa;
+  color: black;
+}
+
+.customer-table th,
+.customer-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.customer-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Botones de editar y eliminar */
+.edit-btn,
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 5px;
+}
+
+.edit-btn:hover {
+  color: #007bff;
+}
+
+.delete-btn:hover {
+  color: #dc3545;
+}

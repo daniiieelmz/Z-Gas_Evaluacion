@@ -1,93 +1,131 @@
+/* Estilos globales */
 body {
-    font-family: "Arial", sans-serif;
-    background-color: #f5f5f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .container {
-    width: 800px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-  }
-  
-  /* Formulario */
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .input-row {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .input-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 23%;
-  }
-  
-  .input-group label {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .input-group input {
-    padding: 8px;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .add-btn {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .add-btn:hover {
-    background-color: #218838;
-  }
-  
-  /* Tabla */
-  .product-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .product-table th, .product-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .product-table th {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .edit-btn, .delete-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    margin: 0 5px;
-  }
-  
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor principal */
+.products-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+}
+
+/* Título principal más arriba */
+h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+/* Contenedor del formulario centrado */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Inputs bien distribuidos y más elegantes */
+.input-row {
+  display: flex;
+  gap: 60px;
+  width: 100%;
+  justify-content: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 22%;
+}
+
+.input-group label {
+  font-weight: bold;
+}
+
+.input-group input {
+  padding: 8px; /* Más fino y elegante */
+  border: 2px solid #000;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+/* Botón "PRODUCTS +" sin animación */
+.add-btn {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 12px 24px;
+  border-radius: 5px;
+  margin-top: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Encabezado de la tabla con gris más claro */
+.product-table thead {
+  background-color: #aaa; /* Gris más claro */
+  color: black;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.product-table th, .product-table td {
+  border: 1px solid #ddd;
+  padding: 8px; /* Filas más finas y elegantes */
+  font-size: 16px;
+}
+
+.product-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Botones de edición y eliminación */
+.edit-btn, .delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 5px;
+}
+
+.edit-btn:hover {
+  color: #007bff;
+}
+
+.delete-btn:hover {
+  color: #dc3545;
+}
+/* Alerta debajo del botón de agregar */
+.error-message {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Tabla más abajo */
+.product-table {
+  margin-top: 50px;
+}
+
