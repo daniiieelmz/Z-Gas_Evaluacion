@@ -1,0 +1,136 @@
+.employees-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  padding-top: 80px; /* Para evitar superposición con un Navbar fijo */
+}
+
+h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Contenedor para agrupar las filas de inputs */
+.input-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Cada fila de inputs */
+.input-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+/* Primera fila (6 inputs) */
+.row-1 .input-group {
+  width: 14%;
+  min-width: 100px;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+/* Segunda fila (5 inputs) */
+.row-2 .input-group {
+  width: 18%;
+  min-width: 100px;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+/* Separador vertical entre inputs en cada fila (excepto el último) */
+.input-row .input-group:not(:last-child) {
+  border-right: 1px solid #ddd;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.input-group input {
+  padding: 8px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.add-btn {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 12px 24px;
+  border-radius: 5px;
+  margin-top: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Estilos de la tabla */
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.employee-table thead {
+  background-color: #aaa;
+  color: black;
+}
+
+.employee-table th,
+.employee-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.employee-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Botones de edición y eliminación */
+.edit-btn,
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 5px;
+}
+
+.edit-btn:hover {
+  color: #007bff;
+}
+
+.delete-btn:hover {
+  color: #dc3545;
+}
